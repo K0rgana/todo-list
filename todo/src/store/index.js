@@ -91,7 +91,12 @@ export default createStore({
       let token = response.data.access_token
       commit('set_token', token)
       dispatch('fetchData')
-    }
+    },
+    async register ({ commit }, data) {
+      const response = await axios.post(`http://localhost:8000/api/register`, data)
+      console.log(response)
+      commit
+    },
   },
   modules: {
   }
